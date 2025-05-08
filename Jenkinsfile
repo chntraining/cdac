@@ -1,35 +1,39 @@
 pipeline {
     agent any
+
     stages {
         stage('Clone Repo') {
             steps {
-	echo 'Cloning the repository'
-                 git branch: 'main', url: 'https://github.com/chntraining/cdac.git',credentialsId: 'mygithubcred'
+                echo 'Cloning the repository'
+                git branch: 'main', url: 'https://github.com/chntraining/cdac.git', credentialsId: 'mygithubcred'
             }
         }
+
         stage('Build') {
             steps {
-	echo 'Building the Application'
-                  bat 'hello.bat'
+                echo 'Building the Application'
+                bat 'hello.bat'
             }
         }
+
         stage('Test') {
             steps {
-	echo 'Building the Application'
-                  bat 'echo "All TEST CASES PASSSSSSED" '
+                echo 'Running Tests'
+                bat 'echo All TEST CASES PASSSSSSSED'
             }
         }
+
         stage('Deploy') {
             steps {
-	echo 'Building the Application'
-                  bat 'echo "Deployement SUCCESSFUL" '
+                echo 'Deploying the Application'
+                bat 'echo Deployment SUCCESSFUL'
             }
-             post { 
-                always { 
-                echo 'Pipeline execution Completed Successfully :) !'
-             }
         }
+    }
+
+    post { 
+        always { 
+            echo 'Pipeline execution Completed Successfully :) !'
         }
-       
     }
 }

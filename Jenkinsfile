@@ -4,7 +4,7 @@ pipeline {
         stage('Clone Repo') {
             steps {
 	echo 'Cloning the repository'
-                 git branch: 'main', url: 'https://github.com/chntraining/cdac.git',credentialsId: 'githubcred'
+                 git branch: 'main', url: 'https://github.com/chntraining/cdac.git',credentialsId: 'mygithubcred'
             }
         }
         stage('Build') {

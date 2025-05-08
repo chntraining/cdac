@@ -24,11 +24,12 @@ pipeline {
 	echo 'Building the Application'
                   bat 'echo "Deployement SUCCESSFUL" '
             }
+             post { 
+                always { 
+                echo 'Pipeline execution Completed Successfully :) !'
+             }
         }
-        post { 
-        always { 
-            echo 'Pipeline execution Completed Successfully :) !'
-           }
         }
+       
     }
 }
